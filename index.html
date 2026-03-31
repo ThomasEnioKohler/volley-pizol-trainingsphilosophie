@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volley Pizol – Dokumente</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f2f2f2; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 48px 16px; }
+
+  .logo-wrap { text-align: center; margin-bottom: 48px; }
+  .logo-volley { font-size: 22px; font-weight: 900; color: #808080; text-transform: uppercase; letter-spacing: .18em; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .logo-pizol  { font-size: 38px; font-weight: 900; color: #E31E24; text-transform: uppercase; letter-spacing: .04em; margin-top: -4px; }
+  .logo-stripes { display: inline-flex; align-items: center; gap: 5px; margin-left: 4px; margin-bottom: -3px; }
+  .stripe { width: 6px; border-radius: 2px; background: #808080; }
+  .logo-sub { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(0,0,0,.35); margin-top: 6px; }
+
+  .divider { width: 48px; height: 2px; background: #E31E24; border-radius: 2px; margin: 0 auto 48px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 860px;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform .15s, box-shadow .15s, border-color .2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(227,30,36,.1); border-color: rgba(227,30,36,.3); }
+
+  .card-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(227,30,36,.1); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .card-title { font-size: 15px; font-weight: 600; color: #111; }
+  .card-desc  { font-size: 12px; color: rgba(0,0,0,.45); line-height: 1.6; }
+  .card-link  { font-size: 11px; color: #E31E24; font-weight: 500; margin-top: auto; padding-top: 8px; border-top: 1px solid rgba(0,0,0,.06); }
+
+  /* Placeholder card (coming soon) */
+  .card.soon { opacity: .5; pointer-events: none; }
+  .card.soon .card-icon { background: rgba(0,0,0,.06); }
+  .card.soon .card-link { color: #aaa; }
+
+  .footer { margin-top: 64px; font-size: 11px; color: rgba(0,0,0,.3); text-align: center; }
+  .footer a { color: rgba(227,30,36,.6); text-decoration: none; }
+</style>
+</head>
+<body>
+
+  <div class="logo-wrap">
+    <div class="logo-volley">
+      VOLLEY
+      <span class="logo-stripes">
+        <span class="stripe" style="height:18px"></span>
+        <span class="stripe" style="height:13px"></span>
+      </span>
+    </div>
+    <div class="logo-pizol">PIZOL</div>
+    <div class="logo-sub">Interne Dokumente</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="grid">
+
+    <!-- Dokument 1: Trainingsphilosophie -->
+    <a class="card" href="volley_pizol_trainingsphilosophie.html">
+      <div class="card-icon">🏐</div>
+      <div class="card-title">Trainingsphilosophie</div>
+      <div class="card-desc">Unsere 9 Grundprinzipien, Leitgedanke und Version für Trainer:innen — interaktives Poster.</div>
+      <div class="card-link">Öffnen →</div>
+    </a>
+
+    <!-- Platzhalter für weitere Dokumente -->
+    <div class="card soon">
+      <div class="card-icon">📋</div>
+      <div class="card-title">Saisonplanung</div>
+      <div class="card-desc">Trainings- und Wettkampfplanung für die aktuelle Saison.</div>
+      <div class="card-link">Demnächst</div>
+    </div>
+
+    <div class="card soon">
+      <div class="card-icon">📌</div>
+      <div class="card-title">Teamregeln</div>
+      <div class="card-desc">Verbindliche Regeln und Erwartungen für alle Spieler:innen.</div>
+      <div class="card-link">Demnächst</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    &copy; Volley Pizol &nbsp;·&nbsp; <a href="https://www.volleypizol.org">volleypizol.org</a>
+  </div>
+
+</body>
+</html>
