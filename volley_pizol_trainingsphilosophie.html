@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trainingsphilosophie – Volley Pizol</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #e8e8e8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; display: flex; justify-content: center; padding: 32px 16px; }
+
+  .poster {
+    background: #fff;
+    color: #111;
+    padding: 44px 40px 36px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 860px;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.12);
+  }
+
+  .bg-glow { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; }
+  .bg-glow-1 { width: 420px; height: 420px; background: #E31E24; opacity: .04; top: -100px; right: -80px; }
+  .bg-glow-2 { width: 300px; height: 300px; background: #E31E24; opacity: .03; bottom: 60px; left: -60px; }
+
+  .grid-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(rgba(0,0,0,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .logo-wrap { position: relative; z-index: 2; margin-bottom: 32px; }
+  .logo-volley { font-size: 28px; font-weight: 900; color: #808080; text-transform: uppercase; letter-spacing: .18em; display: flex; align-items: center; gap: 8px; }
+  .logo-pizol { font-size: 48px; font-weight: 900; color: #E31E24; text-transform: uppercase; letter-spacing: .04em; display: flex; align-items: center; gap: 8px; margin-top: -4px; }
+  .logo-stripes { display: inline-flex; align-items: center; gap: 5px; margin-left: 4px; margin-bottom: -4px; }
+  .stripe { width: 7px; border-radius: 2px; background: #808080; }
+  .logo-tagline { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(0,0,0,.35); margin-top: 6px; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, #E31E24 0%, rgba(0,0,0,.06) 60%); margin: 24px 0; position: relative; z-index: 1; }
+  .divider-light { height: 1px; background: rgba(0,0,0,.07); margin: 28px 0; position: relative; z-index: 1; }
+
+  .hero { position: relative; z-index: 1; margin-bottom: 28px; }
+  .hero-eyebrow { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #E31E24; border: 1px solid rgba(227,30,36,.35); border-radius: 3px; padding: 3px 10px; margin-bottom: 12px; }
+  .hero-title { font-size: 38px; font-weight: 900; line-height: 1.04; letter-spacing: -.02em; color: #111; }
+  .hero-title .hl { color: #E31E24; }
+  .hero-desc { font-size: 13px; color: rgba(0,0,0,.45); margin-top: 10px; line-height: 1.65; max-width: 430px; }
+  .hero-bullets { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .hero-bullet { font-size: 11px; background: #f5f5f5; border: 1px solid rgba(0,0,0,.08); border-radius: 20px; padding: 4px 12px; color: rgba(0,0,0,.55); }
+
+  .section-label { font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #E31E24; margin-bottom: 14px; position: relative; z-index: 1; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; position: relative; z-index: 1; }
+
+  .card { background: #f5f5f5; border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 14px; cursor: pointer; transition: border-color .2s, background .2s, transform .15s, box-shadow .15s; }
+  .card:hover { background: rgba(227,30,36,.05); border-color: rgba(227,30,36,.35); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(227,30,36,.1); }
+  .card-num { font-size: 9px; font-weight: 500; letter-spacing: .1em; color: rgba(0,0,0,.25); margin-bottom: 8px; }
+  .card-icon { width: 26px; height: 26px; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+  .ic-red  { background: rgba(227,30,36,.12); }
+  .ic-gray { background: rgba(128,128,128,.12); }
+  .card-title { font-size: 12px; font-weight: 500; color: #111; margin-bottom: 3px; }
+  .card-tag { font-size: 10px; color: rgba(0,0,0,.4); line-height: 1.5; }
+  .card-bar { height: 2px; border-radius: 2px; margin-top: 11px; width: 20px; }
+  .bar-red  { background: #E31E24; }
+  .bar-gray { background: #808080; }
+
+  .quote-block { position: relative; z-index: 1; margin-top: 20px; background: #f9f9f9; border-left: 3px solid #808080; border-radius: 0 8px 8px 0; padding: 14px 18px; }
+  .quote-text { font-size: 12px; color: rgba(0,0,0,.6); line-height: 1.7; font-style: italic; }
+  .quote-author { font-size: 10px; color: rgba(0,0,0,.35); margin-top: 6px; font-weight: 500; }
+  .quote-sub { font-size: 11px; color: #E31E24; margin-top: 8px; font-weight: 500; }
+
+  .trainer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 4px; }
+  .trainer-card { background: #f5f5f5; border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 16px; }
+  .trainer-card-title { font-size: 11px; font-weight: 500; color: #E31E24; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+  .trainer-list { list-style: none; }
+  .trainer-list li { font-size: 11px; color: rgba(0,0,0,.6); line-height: 1.6; padding: 4px 0; border-bottom: 1px solid rgba(0,0,0,.05); display: flex; gap: 8px; align-items: flex-start; }
+  .trainer-list li:last-child { border-bottom: none; }
+  .tdot { width: 5px; height: 5px; border-radius: 50%; background: #808080; flex-shrink: 0; margin-top: 6px; }
+  .tdot.red { background: #E31E24; }
+  .trainer-footer { margin-top: 12px; font-size: 11px; color: #E31E24; font-weight: 500; font-style: italic; }
+
+  .leitsatz { position: relative; z-index: 1; margin-top: 24px; border-left: 3px solid #E31E24; padding: 14px 18px; background: rgba(227,30,36,.05); border-radius: 0 8px 8px 0; }
+  .leitsatz-label { font-size: 9px; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; color: #E31E24; margin-bottom: 6px; }
+  .leitsatz-text { font-size: 12px; color: rgba(0,0,0,.65); line-height: 1.65; font-style: italic; }
+
+  .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,.08); position: relative; z-index: 1; }
+  .footer-quote { font-size: 10px; color: rgba(0,0,0,.3); font-style: italic; }
+  .footer-url { font-size: 10px; color: rgba(227,30,36,.7); letter-spacing: .06em; }
+
+  .vball-deco { position: absolute; top: 20px; right: 36px; opacity: .05; z-index: 0; }
+
+  /* OVERLAY */
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 100; align-items: center; justify-content: center; }
+  .overlay.active { display: flex; }
+  .popup { background: #fff; border-radius: 14px; padding: 32px 28px 24px; width: 360px; max-width: 90vw; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.2); animation: popIn .2s ease; max-height: 85vh; overflow-y: auto; }
+  @keyframes popIn { from { opacity:0; transform:scale(.93) translateY(8px); } to { opacity:1; transform:scale(1) translateY(0); } }
+  .popup-close { position: absolute; top: 14px; right: 16px; background: #f0f0f0; border: none; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; font-size: 14px; color: #555; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+  .popup-close:hover { background: #e0e0e0; }
+  .popup-num { font-size: 9px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: rgba(0,0,0,.25); margin-bottom: 6px; }
+  .popup-title { font-size: 22px; font-weight: 900; color: #111; margin-bottom: 4px; letter-spacing: -.01em; }
+  .popup-intro { font-size: 12px; color: rgba(0,0,0,.5); margin-bottom: 10px; line-height: 1.6; }
+  .popup-arrow { font-size: 12px; font-weight: 500; color: #E31E24; margin-bottom: 16px; }
+  .popup-divider { height: 1px; background: rgba(227,30,36,.2); margin-bottom: 16px; }
+  .popup-points { list-style: none; }
+  .popup-points li { font-size: 13px; color: rgba(0,0,0,.65); line-height: 1.6; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,.05); display: flex; gap: 10px; align-items: flex-start; }
+  .popup-points li:last-child { border-bottom: none; }
+  .popup-dot { width: 6px; height: 6px; border-radius: 50%; background: #E31E24; flex-shrink: 0; margin-top: 7px; }
+  .popup-dot.gray { background: #808080; }
+
+  @media (max-width: 600px) {
+    .poster { padding: 28px 20px 24px; }
+    .grid { grid-template-columns: 1fr 1fr; }
+    .trainer-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 28px; }
+    .logo-pizol { font-size: 36px; }
+    .logo-volley { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="grid-lines"></div>
+
+  <svg class="vball-deco" width="210" height="210" viewBox="0 0 210 210">
+    <circle cx="105" cy="105" r="96" fill="none" stroke="#E31E24" stroke-width="3"/>
+    <path d="M105 9 Q162 54 162 105 Q162 156 105 201" fill="none" stroke="#E31E24" stroke-width="3"/>
+    <path d="M105 9 Q48 54 48 105 Q48 156 105 201" fill="none" stroke="#E31E24" stroke-width="3"/>
+    <path d="M9 105 Q54 48 105 48 Q156 48 201 105" fill="none" stroke="#E31E24" stroke-width="3"/>
+    <path d="M9 105 Q54 162 105 162 Q156 162 201 105" fill="none" stroke="#E31E24" stroke-width="3"/>
+  </svg>
+
+  <div class="logo-wrap">
+    <div class="logo-volley">VOLLEY
+      <span class="logo-stripes">
+        <span class="stripe" style="height:22px"></span>
+        <span class="stripe" style="height:16px"></span>
+      </span>
+    </div>
+    <div class="logo-pizol">PIZOL</div>
+    <div class="logo-tagline">Trainingsphilosophie</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Unser Verständnis</div>
+    <div class="hero-title">Mehr als<br>nur <span class="hl">Volleyball.</span></div>
+    <p class="hero-desc">Wir begleiten junge Menschen in ihrer sportlichen und persönlichen Entwicklung — in einem Umfeld, in dem Spieler:innen wachsen dürfen.</p>
+    <div class="hero-bullets">
+      <span class="hero-bullet">sich sicher fühlen</span>
+      <span class="hero-bullet">Verantwortung übernehmen</span>
+      <span class="hero-bullet">wachsen dürfen</span>
+    </div>
+  </div>
+
+  <div class="section-label">Unsere 9 Grundprinzipien</div>
+  <div class="grid" id="grid"></div>
+
+  <div class="quote-block">
+    <div class="quote-text">„Volleyball ist die einzige Sportart, in der der Ball nie den Boden berühren darf. Wir sind keine Jongleure im Zirkus – wir sind Akrobaten auf dem Spielfeld."</div>
+    <div class="quote-author">— Berni Vesti</div>
+    <div class="quote-sub">👉 Entscheidend ist nicht der Fehler – sondern die Reaktion danach.</div>
+  </div>
+
+  <div class="divider-light"></div>
+
+  <div class="leitsatz">
+    <div class="leitsatz-label">Leitgedanke</div>
+    <div class="leitsatz-text">„Wir schaffen ein Umfeld aus Vertrauen, Klarheit und Beständigkeit, in dem junge Spieler Verantwortung übernehmen, aus Fehlern lernen und sich als Mensch und Spieler entwickeln können."</div>
+  </div>
+
+  <div class="divider-light"></div>
+
+  <div class="section-label">Version für Trainer:innen</div>
+  <div class="trainer-grid">
+    <div class="trainer-card">
+      <div class="trainer-card-title">Unsere Rolle</div>
+      <ul class="trainer-list">
+        <li><span class="tdot red"></span><span>Vorbilder</span></li>
+        <li><span class="tdot red"></span><span>Begleiter</span></li>
+        <li><span class="tdot red"></span><span>Entwickler</span></li>
+      </ul>
+    </div>
+    <div class="trainer-card">
+      <div class="trainer-card-title">Unser Verhalten</div>
+      <ul class="trainer-list">
+        <li><span class="tdot"></span><span>Wir leben Vertrauen und Klarheit vor</span></li>
+        <li><span class="tdot"></span><span>Wir sind konsequent und verlässlich</span></li>
+        <li><span class="tdot"></span><span>Wir kommunizieren offen und ehrlich</span></li>
+        <li><span class="tdot"></span><span>Wir fördern Verantwortung</span></li>
+        <li><span class="tdot"></span><span>Wir gehen mit Fehlern konstruktiv um</span></li>
+      </ul>
+    </div>
+    <div class="trainer-card">
+      <div class="trainer-card-title">Zusammenarbeit</div>
+      <ul class="trainer-list">
+        <li><span class="tdot"></span><span>Austausch und Feedback untereinander</span></li>
+        <li><span class="tdot"></span><span>Gegenseitige Trainingsbesuche</span></li>
+        <li><span class="tdot"></span><span>Gemeinsame Standards</span></li>
+      </ul>
+      <div class="trainer-footer">👉 Wir entwickeln nicht nur Spieler – sondern auch uns als Trainerteam.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-quote">„Fehler sind Fortschritt. Reaktion entscheidet."</div>
+    <div class="footer-url">volleypizol.org</div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closePopup(event)">
+  <div class="popup" id="popup">
+    <button class="popup-close" onclick="closePopupDirect()">✕</button>
+    <div class="popup-num" id="p-num"></div>
+    <div class="popup-title" id="p-title"></div>
+    <div class="popup-intro" id="p-intro"></div>
+    <div class="popup-arrow" id="p-arrow"></div>
+    <div class="popup-divider"></div>
+    <ul class="popup-points" id="p-points"></ul>
+  </div>
+</div>
+
+<script>
+const principles = [
+  { num:"01", color:"red",  title:"Vertrauen",                       intro:"Vertrauen ist die Basis unserer Arbeit.",             arrow:"👉 Ohne Vertrauen keine Entwicklung.",                                        points:["Fehler sind erlaubt","Jede:r darf sich zeigen, wie er/sie ist","Ehrliche Kommunikation ist selbstverständlich"],                                   tag:"Fehler sind erlaubt. Ehrlichkeit ist selbstverständlich." },
+  { num:"02", color:"gray", title:"Klarheit",                         intro:"Wir geben Orientierung.",                             arrow:"👉 Klarheit schafft Sicherheit.",                                             points:["Klare Rollen für alle Spieler:innen","Klare Erwartungen im Training und Spiel","Klare Kommunikation vom Trainerteam"],                                tag:"Klare Rollen, Erwartungen und Kommunikation." },
+  { num:"03", color:"red",  title:"Beständigkeit",                    intro:"Wir sind verlässlich.",                               arrow:"👉 Beständigkeit gibt Halt.",                                                 points:["Konsequentes Handeln in allen Situationen","Stabile Werte als Fundament des Vereins","Gleiche Standards im Training und Spiel"],                        tag:"Stabile Werte. Gleiche Standards immer." },
+  { num:"04", color:"gray", title:"Respekt",                          intro:"Respekt prägt unser Verhalten.",                      arrow:"👉 Respekt zeigt sich besonders in schwierigen Momenten.",                     points:["Gegenüber Mitspielern, Trainern und Gegnern","Gegenüber Schiedsrichtern – unabhängig von Entscheidungen","Unabhängig von Leistung oder Rolle"],     tag:"Gegenüber allen — unabhängig von Leistung." },
+  { num:"05", color:"red",  title:"Stärkenorientierung & Entwicklung",intro:"Wir fördern individuell.",                            arrow:"👉 Entwicklung steht über Resultat.",                                         points:["Stärken erkennen und ausbauen","Schwächen gezielt entwickeln","Jede:r im eigenen Tempo"],                                                              tag:"Stärken ausbauen, Schwächen entwickeln, eigenes Tempo." },
+  { num:"06", color:"gray", title:"Verantwortung",                    intro:"Wir fördern eigenständige Spieler:innen.",            arrow:"👉 Verantwortung stärkt Persönlichkeit.",                                     points:["Mitdenken statt nur ausführen","Entscheidungen treffen","Verantwortung für sich und das Team übernehmen"],                                           tag:"Mitdenken, entscheiden, Verantwortung tragen." },
+  { num:"07", color:"red",  title:"Fehlerkultur",                     intro:"Fehler sind Teil unseres Spiels.",                   arrow:"👉 Fehler sind Fortschritt. Entscheidend ist die Reaktion danach.",            points:["Fehler offen ansprechen ohne Angst","Daraus lernen statt sie verstecken","Unter Druck trainieren und daran wachsen"],                                  tag:"Offen ansprechen, lernen, unter Druck wachsen." },
+  { num:"08", color:"red",  title:"Freude & Leidenschaft",            intro:"Volleyball soll begeistern.",                        arrow:"👉 Freude ist der Schlüssel für langfristigen Erfolg.",                       points:["Positive Atmosphäre im Training und Spiel","Gemeinsame Erlebnisse als Team","Spass am Spiel als Grundmotivation"],                                     tag:"Positive Atmosphäre. Spass am Spiel." },
+  { num:"09", color:"gray", title:"Entwicklung vor Resultat",         intro:"Wir denken langfristig.",                            arrow:"👉 Resultate sind die Folge.",                                                points:["Ausbildung vor kurzfristigem Erfolg","Nachhaltige Entwicklung als Ziel","Fortschritt zählt mehr als das Ergebnis"],                                    tag:"Langfristig denken. Ausbildung zuerst." }
+];
+
+const icons = [
+  `<path d="M6.5 1l1.2 3.2H11L8.3 6.5l1 3-2.8-1.9-2.8 1.9 1-3L2 4.2h3.3z" fill="#E31E24"/>`,
+  `<rect x="2" y="2" width="9" height="9" rx="2" stroke="#808080" stroke-width="1.5"/><path d="M4.5 6.5h4M6.5 4.5v4" stroke="#808080" stroke-width="1.5" stroke-linecap="round"/>`,
+  `<path d="M2 9l2.5-4 2 2.5L9 2l2 7" stroke="#E31E24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  `<circle cx="6.5" cy="6.5" r="4.5" stroke="#808080" stroke-width="1.5"/><path d="M4.5 6.5l1.5 1.5L8.5 5" stroke="#808080" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  `<path d="M2 11l2.5-4.5 2 2L9 1.5l2 9.5" stroke="#E31E24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  `<path d="M6.5 2v4l2.5 1.5" stroke="#808080" stroke-width="1.5" stroke-linecap="round"/><circle cx="6.5" cy="6.5" r="4.5" stroke="#808080" stroke-width="1.5"/>`,
+  `<path d="M6.5 2 Q8 4 7 6 Q9 5 9.5 7 Q8 9 6.5 11 Q5 9 3.5 7 Q4 5 6 6 Q5 4 6.5 2Z" stroke="#E31E24" stroke-width="1.2" fill="none" stroke-linejoin="round"/>`,
+  `<path d="M6.5 10.5S2 7.5 2 4.5a3 3 0 014.5-2.6A3 3 0 0111 4.5c0 3-4.5 6-4.5 6z" fill="#E31E24" fill-opacity=".75"/>`,
+  `<path d="M2 9.5l2.5-3.5 2 2L9 2l2 7.5" stroke="#808080" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`
+];
+
+const grid = document.getElementById('grid');
+principles.forEach((p, i) => {
+  const c = document.createElement('div');
+  c.className = 'card';
+  c.innerHTML = `
+    <div class="card-num">${p.num}</div>
+    <div class="card-icon ic-${p.color}"><svg width="13" height="13" viewBox="0 0 13 13" fill="none">${icons[i]}</svg></div>
+    <div class="card-title">${p.title}</div>
+    <div class="card-tag">${p.tag}</div>
+    <div class="card-bar bar-${p.color}"></div>
+  `;
+  c.onclick = () => openPopup(i);
+  grid.appendChild(c);
+});
+
+function openPopup(i) {
+  const p = principles[i];
+  document.getElementById('p-num').textContent = `Grundprinzip ${p.num}`;
+  document.getElementById('p-title').textContent = p.title;
+  document.getElementById('p-intro').textContent = p.intro;
+  document.getElementById('p-arrow').textContent = p.arrow;
+  document.getElementById('p-points').innerHTML = p.points.map(pt =>
+    `<li><span class="popup-dot ${p.color==='gray'?'gray':''}"></span><span>${pt}</span></li>`
+  ).join('');
+  document.getElementById('overlay').classList.add('active');
+}
+function closePopup(e) { if (e.target===document.getElementById('overlay')) closePopupDirect(); }
+function closePopupDirect() { document.getElementById('overlay').classList.remove('active'); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closePopupDirect(); });
+</script>
+</body>
+</html>
